@@ -17,6 +17,7 @@ steps:
 
 - script: |
     npm install -g @angular/cli
+    npm install @auth0/auth0-spa-js --save
     npm install
     ng build --prod
   displayName: 'npm install and build'
