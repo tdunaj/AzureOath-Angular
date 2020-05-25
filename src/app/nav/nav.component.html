@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/list">List</button>
+    <button *ngIf="auth.loggedIn" mat-button routerLink="/profile">
+      Profile
+    </button>
+    <span style="flex: 1 1 auto;"></span>
+    <!-- <button *ngIf="!auth.IsAuthenticated" mat-button routerLink="/register">
+      Register
+    </button> -->
+    <button *ngIf="!auth.loggedIn" mat-button (click)="auth.login()">
+      Login
+    </button>
+    <button *ngIf="auth.loggedIn" mat-button (click)="auth.logout()">
+      Logout
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
