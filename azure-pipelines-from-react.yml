@@ -20,7 +20,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\dist\frontend'  
+    SourceFolder: '$(Build.SourcesDirectory)\dist'  
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
 
