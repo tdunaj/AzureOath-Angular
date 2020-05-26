@@ -20,9 +20,9 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files'
   inputs:
-  SourceFolder: '$(Build.SourcesDirectory)\dist\frontend'  
-  TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  CleanTargetFolder: true
+    SourceFolder: '$(Build.SourcesDirectory)\dist\frontend'  
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
 
 - task: PublishBuildArtifacts@1
   inputs:
