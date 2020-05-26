@@ -19,12 +19,12 @@ steps:
     npm install -g @angular/cli
     npm install @auth0/auth0-spa-js --save
     npm install
-    ng build --prod
+    npm run build
   displayName: 'npm install and build'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/dist/frontend'
+    SourceFolder: '$(Build.SourcesDirectory)/dist'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
