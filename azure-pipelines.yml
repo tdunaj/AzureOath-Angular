@@ -10,31 +10,31 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '12.x'
-  displayName: 'Install Node.js'
+# - task: NodeTool@0
+#   inputs:
+#     versionSpec: '12.x'
+#   displayName: 'Install Node.js'
 
-- script: |
-    npm install -g @angular/cli
-    npm install @auth0/auth0-spa-js --save
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
+# - script: |
+#     npm install -g @angular/cli
+#     npm install @auth0/auth0-spa-js --save
+#     npm install
+#     ng build --prod
+#   displayName: 'npm install and build'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/dist'
+    SourceFolder: '$(Build.SourcesDirectory)/dist/frontend'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+# - task: ArchiveFiles@2
+#   inputs:
+#     rootFolderOrFile: '$(Build.BinariesDirectory)'
+#     includeRootFolder: true
+#     archiveType: 'zip'
+#     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#     replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
   inputs:
